@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros Recuerdos | Ale & Gael ❤️</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --amor-rojo: #d63031; /* El rojo de tu barra */
+        }
+
+        body {
+            background: linear-gradient(180deg, #fce4ec 0%, #ff80ab 45%, #f06292 100%);
+            background-attachment: fixed;
+            background-size: cover;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* NAVBAR */
+        .navbar-amor {
+            background-color: var(--amor-rojo);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .navbar-amor .nav-link {
+            color: #ffffff !important;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin: 0 15px;
+        }
+
+        /* TEXTO EN ROJO (COMO LA BARRA) */
+        .romantic-font {
+            font-family: 'Dancing Script', cursive;
+            color: var(--amor-rojo) !important;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.5); /* Sutil brillo blanco para resaltar sobre el rosa */
+        }
+
+        .texto-rojo-claro {
+            color: var(--amor-rojo) !important;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* CONTENEDOR PRINCIPAL */
+        .main-content {
+            flex: 1;
+            padding: 110px 0 50px 0;
+        }
+
+        /* CUADRÍCULA DEL CORAZÓN (16 FOTOS) */
+        .heart-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            gap: 8px;
+            width: 100%;
+            max-width: 500px;
+            height: 500px;
+            margin: 40px auto;
+        }
+
+        .foto-item {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+            border: 2px solid white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            opacity: 0;
+            animation: unirCorazon 2s ease-out forwards;
+        }
+
+        /* POSICIONES CORAZÓN */
+        .pos-1 { grid-area: 1 / 2; --x: -100px; --y: -200px; animation-delay: 0.1s; }
+        .pos-2 { grid-area: 1 / 4; --x: 100px; --y: -200px; animation-delay: 0.2s; }
+        .pos-3 { grid-area: 2 / 1; --x: -200px; --y: -100px; animation-delay: 0.3s; }
+        .pos-4 { grid-area: 2 / 2; --x: -100px; --y: -100px; animation-delay: 0.4s; }
+        .pos-5 { grid-area: 2 / 3; --x: 0px; --y: -200px; animation-delay: 0.5s; }
+        .pos-6 { grid-area: 2 / 4; --x: 100px; --y: -100px; animation-delay: 0.6s; }
+        .pos-7 { grid-area: 2 / 5; --x: 200px; --y: -100px; animation-delay: 0.7s; }
+        .pos-8 { grid-area: 3 / 1; --x: -200px; --y: 0px; animation-delay: 0.8s; }
+        .pos-9 { grid-area: 3 / 2; --x: -100px; --y: 0px; animation-delay: 0.9s; }
+        .pos-10 { grid-area: 3 / 3; --x: 0px; --y: 0px; animation-delay: 1.0s; }
+        .pos-11 { grid-area: 3 / 4; --x: 100px; --y: 0px; animation-delay: 1.1s; }
+        .pos-12 { grid-area: 3 / 5; --x: 200px; --y: 0px; animation-delay: 1.2s; }
+        .pos-13 { grid-area: 4 / 2; --x: -100px; --y: 100px; animation-delay: 1.3s; }
+        .pos-14 { grid-area: 4 / 3; --x: 0px; --y: 100px; animation-delay: 1.4s; }
+        .pos-15 { grid-area: 4 / 4; --x: 100px; --y: 100px; animation-delay: 1.5s; }
+        .pos-16 { grid-area: 5 / 3; --x: 0px; --y: 200px; animation-delay: 1.6s; }
+
+        @keyframes unirCorazon {
+            0% { transform: translate(var(--x), var(--y)) scale(0) rotate(45deg); opacity: 0; }
+            100% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 1; }
+        }
+
+        footer {
+            background-color: rgba(255, 255, 255, 0.5);
+            border-top: 1px solid rgba(214, 48, 49, 0.1);
+        }
+
+        @media (max-width: 576px) {
+            .heart-grid { height: 320px; width: 320px; gap: 5px; }
+            .romantic-font { font-size: 2.8rem !important; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand navbar-amor fixed-top">
+    <div class="container justify-content-center">
+        <div class="navbar-nav">
+            <a class="nav-link" href="index.html">INICIO</a>
+            <a class="nav-link" href="nuestra-historia.html">NUESTRA HISTORIA</a>
+            <a class="nav-link active" href="recuerdos.html">RECUERDOS</a>
+        </div>
+    </div>
+</nav>
+
+<div class="main-content container text-center">
+    <h1 class="romantic-font display-3 mb-2">Nuestro Corazón</h1>
+    <p class="texto-rojo-claro mb-4">Un par de fotos de nuestra hermosa relación</p>
+
+    <div class="heart-grid">
+        <img src="assets/img/I_1.jfif" class="foto-item pos-1" alt="Foto">
+        <img src="assets/img/I_2.jfif" class="foto-item pos-2" alt="Foto">
+        <img src="assets/img/I_3.jfif" class="foto-item pos-3" alt="Foto">
+        <img src="assets/img/I_4.jfif" class="foto-item pos-4" alt="Foto">
+        <img src="assets/img/I_5.jfif" class="foto-item pos-5" alt="Foto">
+        <img src="assets/img/I_6.jfif" class="foto-item pos-6" alt="Foto">
+        <img src="assets/img/I_7.jfif" class="foto-item pos-7" alt="Foto">
+        <img src="assets/img/I_8.jfif" class="foto-item pos-8" alt="Foto">
+        <img src="assets/img/I_9.jfif" class="foto-item pos-9" alt="Foto">
+        <img src="assets/img/I_10.jfif" class="foto-item pos-10" alt="Foto">
+        <img src="assets/img/I_11.jfif" class="foto-item pos-11" alt="Foto">
+        <img src="assets/img/I_12.jfif" class="foto-item pos-12" alt="Foto">
+        <img src="assets/img/I_13.jfif" class="foto-item pos-13" alt="Foto">
+        <img src="assets/img/I_14.jfif" class="foto-item pos-14" alt="Foto">
+        <img src="assets/img/I_15.jfif" class="foto-item pos-15" alt="Foto">
+        <img src="assets/img/I_16.jfif" class="foto-item pos-16" alt="Foto">
+    </div>
+</div>
+
+<br><br><br><br><br><br><br><br><br><br><br>
+
+<footer class="py-5 text-center">
+    <p class="mb-1">ALE & GAEL</p>
+    <p class="fw-bold text-uppercase" style="font-size: 0.8rem; color: var(--amor-rojo);">Siempre seras mi lugar feliz y seguro mamorcito</p>
+</footer>
+
+</body>
+</html>
