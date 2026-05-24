@@ -7,53 +7,123 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        :root { --amor-rojo: #d63031; --amor-rosa: #fdf5f5; }
-        body { background-color: var(--amor-rosa); font-family: 'Montserrat', sans-serif; padding-top: 80px; }
-        .navbar-amor { background-color: var(--amor-rojo); padding: 15px 0; }
-        .navbar-amor .nav-link { color: #ffffff !important; font-weight: 700; text-transform: uppercase; margin: 0 15px; }
-        .romantic-font { font-family: 'Dancing Script', cursive; color: var(--amor-rojo); }
-
-        .carta {
-            background: white;
-            padding: 50px;
-            border-radius: 2px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            line-height: 1.8;
-            position: relative;
-            border-left: 5px solid var(--amor-rojo);
+        :root {
+            --amor-rojo: #d63031;
+            --amor-rosa: #fdf5f5;
         }
 
+        body {
+            /* Degradado lineal igual a las otras páginas */
+            background: linear-gradient(180deg, #fce4ec 0%, #ff80ab 45%, #f06292 100%);
+            background-attachment: fixed;
+            background-size: cover;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            padding-top: 90px; /* Espacio para la barra fija */
+        }
 
+        /* NAVBAR MEJORADA */
+        .navbar-amor {
+            background-color: var(--amor-rojo);
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        /* Título "Nuestra Historia" en blanco para móviles */
+        .navbar-brand.titulo-blanco {
+            color: #ffffff !important;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.6rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .navbar-amor .nav-link {
+            color: #ffffff !important;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin: 0 15px;
+            font-size: 0.9rem;
+        }
+
+        /* Botón Hamburguesa */
+        .navbar-toggler {
+            border-color: rgba(255,255,255,0.5);
+        }
+        .navbar-toggler-icon {
+            filter: invert(1);
+        }
+
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                background-color: var(--amor-rojo);
+                padding: 15px;
+                border-radius: 0 0 15px 15px;
+            }
+            .navbar-amor .nav-link {
+                text-align: center;
+                padding: 12px 0;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            .navbar-amor .nav-link:last-child {
+                border-bottom: none;
+            }
+        }
+
+        .romantic-font {
+            font-family: 'Dancing Script', cursive;
+            color: var(--amor-rojo);
+        }
+
+        /* ESTILO DE LA CARTA */
+        .carta {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            line-height: 1.8;
+            position: relative;
+            border-left: 8px solid var(--amor-rojo);
+            margin-bottom: 50px;
+        }
+
+        .carta::before {
+            content: "❤";
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: var(--amor-rojo);
+            font-size: 2.5rem;
+            opacity: 0.1;
+        }
+
+        @media (max-width: 576px) {
+            .carta { padding: 25px; }
+            .display-3 { font-size: 2.5rem; }
+        }
 
         footer {
             background-color: rgba(255, 255, 255, 0.5);
             border-top: 1px solid rgba(214, 48, 49, 0.1);
         }
-
-        body {
-            /* Degradado lineal basado en tu imagen: Blanco rosado arriba -> Rosa intenso abajo */
-            background: linear-gradient(180deg, #fce4ec 0%, #ff80ab 45%, #f06292 100%);
-
-            /* Esto asegura que el fondo cubra toda la pantalla y no se repita */
-            background-attachment: fixed;
-            background-size: cover;
-
-            font-family: 'Montserrat', sans-serif;
-            color: var(--amor-texto);
-            margin: 0;
-            min-height: 100vh;
-        }
-        .carta::before { content: "❤"; position: absolute; top: 20px; right: 30px; color: var(--amor-rojo); font-size: 2rem; opacity: 0.2; }
     </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand navbar-amor fixed-top">
-    <div class="container justify-content-center">
-        <div class="navbar-nav">
-            <a class="nav-link" href="principal.html">INICIO</a>
-            <a class="nav-link active" href="nuestra-historia.html">NUESTRA HISTORIA</a>
-            <a class="nav-link" href="recuerdos.html">RECUERDOS</a>
+<nav class="navbar navbar-expand-lg navbar-amor fixed-top">
+    <div class="container">
+        <span class="navbar-brand titulo-blanco d-lg-none">Nuestra Historia</span>
+
+        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navHistoria">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-center" id="navHistoria">
+            <div class="navbar-nav">
+                <a class="nav-link" href="principal.html">INICIO</a>
+                <a class="nav-link active" href="nuestra-historia.html">NUESTRA HISTORIA</a>
+                <a class="nav-link" href="recuerdos.html">RECUERDOS</a>
+            </div>
         </div>
     </div>
 </nav>
@@ -61,12 +131,31 @@
 <div class="container my-5">
     <div class="row justify-content-center">
         <div class="col-lg-9">
-            <h1 class="romantic-font text-center display-3 mb-5">Nuestra Historia</h1>
+            <h1 class="romantic-font text-center display-3 mb-5" style="text-shadow: 1px 1px 2px white;">Nuestra Historia</h1>
+
             <div class="carta">
-                <h3 class="mb-4">Querida Alesita...</h3>
-                <p>Aquí comienza el relato de nosotros. Puedes escribir sobre cómo fue el primer día que la viste, qué sentiste cuando hablaron por primera vez o ese momento exacto del 8 de noviembre cuando todo se volvió oficial.</p>
-                <p>Añade anécdotas, chistes locales o esos pequeños detalles que solo ustedes dos entienden. El texto fluirá mejor si lo divides en párrafos cortos.</p>
-                <p><i>"Porque una historia como la nuestra no se escribe todos los días, se vive en cada segundo que pasamos juntos."</i></p>
+                <h2 class="romantic-font mb-4">Querida Alesita...</h2>
+
+                <h4 class="fw-bold" style="color: var(--amor-rojo);">Nuestros inicios</h4>
+                <p>Todo comenzo en aquel ya un poco lejano 2022, recién entramos a la prepa, una etapa nueva comenzaba, recuerdo que la primera ves que te vi.</p>
+                <p>Fue en septiembre de ese mismo año, recuerdo que teniamos clase libre en el salón 5, en la planta alta, cada quien estaba en sus cosas pero yo me di cuenta al fin de tu presencia, me fije hasta el otro extremo del salón donde estabas tú, desde el primer momento fue amor a primera vista para mí, me enamore de tus ojitoas hermosos, en aquel entonces aún usabamos cubrebocas pero eso no me importaba, solo me importaban tua hermosos ojos que me flecharon desde el primer momento.</p>
+                <p>A partir de entonces, comencé a hablarles de ti a mis amigos, al principio no sabía tu nombre así que un día preste atención al pase de lista para saber tu nombre, y supe que te llamabas Yazmín, y cuando les conte a mis amigos que al fin sabia como te llamabas, se confundieron con Jazmín o sea mi amiga, pero eso no importaba, solo importaba que yo por fin sabia quien eras.</p>
+                <p>Un día recuerdo haberle mostado una publicación de amor en instagram a Ashley, pero claro no era para ella si nopara ti, porque esa publicación me hizo pensar en ti, y la sonsa de Ashley fue a decirte que tu a mi me gustabas pero como tengo entendido, pensabas que Oswaldo era yo, después de eso un día Ashley con Oswaldpo y no recuerdo quein más me llevaron en contra de mi voluntad y a base de empujos y resguños de parte de Ashley me llevaron contigo a la hora del receso, y no es que no haya querido ir porque no quisiera sino porque me deba mucha pena acercarme a ti.</p>
+                <p>Cuando por fin me llevaron a donde estabas solo me dijiste que después hablariamos solos, al principio me senti mal ya que me senti rechazado, pero después entendí que tu también tenias mucha pena, a partir de ese momento amigos empezaron a preguntarte si yo te gustaba a ti, y según ellos tú les decias que si,que yo también te gustaba, y decidí acercarme más a ti las veces que se me presentaran, recuerdo que un día en la mañana me sente detrás de ti y empezamos a platicar y justo ese mismo dia nos tomaron un foto hablando juntos, y no lo niego, ese día no estaba muy seguro en sentarme detrás de ti pero recorde que el que no arriesga no gana, y asi empezamos a tener más interacciones, recuerdo que una vez estabas en la cancha de basket con el tonto de Paniagua, y si soy sincero a mi me dieron muchos celos verte hablando con ese escuincle ya que sabia perfectamente que tú también le gustabas a él, entonces decidí ir a sentarme al lado tuyo para quitartelo de encima y por suerte todo salio como lo esperaba, aquel wey se fue y solo quedamos tú y yo juntos para platicar. Otro recuerdo que tengo de aquel tipo y tú es que un dá se sentaron juntos en la clase de TICS de la maestra Margot en compuaula, creo que esa vez fue donde más me enoje ya que tu accediste muy fácilmente a sentarte con ese tipo, y yo pot dentro estaba pero enojadisimo, pero bueno ya que le hacemos a eso.</p>
+
+                <p>Después de eso empezaron los detalles por parte de ambos, recuerdo que aunque no tuvuera demasiado dinero te compraba cualquier detallito para dartelo y así poder conquistarte, te compraba jugos, chocolates, y claro a todos esos detalles les ponia un lindo mensaje para poder enamorarte, al igual que tú hacias lo mismo, recuerdo que unos de los días donde me hiciste más feliz fue un día normal como todos, estabamos en aula 1, recién habiamos entrado a la escuela, era nuestra primera clase del día, yo estaba sentado en la mesa con todos mis amigos y tu te acercaste a mi mesa para darme un chocolate hersheys de esos largos de chocolate blanco con una nota que decía "Para el niño más lindo de todo el planeta" ese día me hiciste feliz como no tienes una idea, porque sabia que para ti no era nada fácil darmelo con todos mis amigos ahí presentes y aún asi tuviste el valor para hacerlo.</p>
+
+                <p>Pero bueno ya fuemucha historia, remontemonos al día en que todo cambio ese 08/11/22, aún no estaba seguro de decirtelo ese día ya que apenas hace tres días había sido tu cumple y no faltaban tantos días para tus XV y supuse que tenias mucho en que estar ocupada, pero al Gael de ese entonces no le importo mucho ya que sabía que te lo tenía que decir porque a una tal amiga tuya Jimena se le ocurrio la magnifica idea de meterme en la cabeza de que si no te pedia ser mi novia pronto, otros mocosos lo harían, pero no estaba dispuesto a verte con otro que no fuera yo es por eso que me anime a decirte, un día antes les conte a mis amigos que por fin te pediria que fueras mi novia, y me apoyaron. Llego el día y estabamos en la cancha de basket asi que te pedi que me acompañaras a un lugar un poco más privado, y recuerdo que no querias ir y no sabia porque, y si te lo pedi asi es porque queria que mis amigos me dieran un poco de privacidad para poder decirte, después de tanto insistir me acompañaste, yo te di el mini cartel que decia "¿Puedo ser tu novio?" y un huevo kinder y primero te pedi que aún no lo abrieras porque estaba muy nervioso, después cuando me snetí listo te pedí que lo abrieras y me dijiste que siii, desde entonces soy el hombre más afortunado porque te tengo a ti a mi lado.</p>
+
+                <h4 class="fw-bold mt-4" style="color: var(--amor-rojo);">Nuestro primer beso</h4>
+                <p>Recuerdo que fue en el parque que esta cerca de tu casa, fue un día saliendo del cetis como ya era costumbre en aquel entonces, platicamoa un rato y nos dimos nuestros regalos de nuestro primer cumple mes, yo te di a Juanito y tu me diste un hotwheels que hasta el día de hoy sigo teniendo, después de eso y una platica ya nos teniamos que marchar cada quien a su respectiva casa, entonces recuerdo que tu estabas sentada en la barda del parque y yo estaba parado mientras nos abrazabamos, entonces llego el momento te baje el cubrebocas y nos dimos nuestro primer beso recuerdo que cuando terminamos de darnos el beso tu me dijiste "¿Ya tenias muchas ganas verdad?" y la verdad es que si, ya habia querido darte un beso en muchas ocaciones anteriores pero nunca querias y ese día por fin lo hiciste, recuerdo que regrese a mi casa todo emocionado por nuestro primer beso, y te puedo decir que tus labios son las más deliciosos y suaves del universo enteroooo, me encanta besarte mi chiquita preciosa.</p>
+
+                <h4 class="fw-bold mt-4" style="color: var(--amor-rojo);">Nuestra primera vez</h4>
+                <p>Este fue uno de los días más felices que he tenido mi vida, porque en aquel entonces los dos ya teniamos muchas ganas de hacerlo, cuantos dias no habiamos fajado en la calle, y entonces se dio la oportunidad de hacerlo en tu casa, nosotros no recuerdo el motivo pero no tuvimos clases ese día, tu hermano estaba en la secundaria, tu mamá en el trabajo al igual que mis papás, desde unos días antes habia ido a comprar los condones para poder hacer el amor y no te imaginas cuanta pena me dio pedirlos, porque era la primera vez en mi vida que compraba unos condones, pero no importaba porque sabia que seria muy lindo, entonces se llego el día yo me desperte temprano para poder hacer un poco de aseo en mi casa y no dejarla tan tirada antes de ir contigo, y sali de mi casa preparado para hacer el amor contigo y al principio surgieron unos pequeños problemitas que no teniamos contemplados, yo vi a mi abuelo en la ruta y cuando llegue afuera de ru casa estaban unas señoras, y me fui al parque por un afua en lo que se iban,y por fin ya fui a tu casa, me recibiste con muchos besos, y no se tú pero yo no iba hacer la exposición de química, yo sabia a lo que iba, entonces, te comencé a besar, empezaron las caricias, te desnude poco a poco al igual que tu a mi, nos cambiamos a la cama de tu mamá para poder tener más espacio, tu me pedias que ya te lo hiciera pero nose que paso conmigo que nose si no me puse bien el condon o nose pero no podia, hasta que porfin pude, estaba dentro de ti, la primera vez de ambos por eso te agradezco infinitamente mi vida hermosa, agradezco la confianza que tuviste en mi para que perdieras tu virginidad conmigo, ese día fue increible, fue riquisimo, y aunque en toda nuestra relación no hemos tenido mucho sexo, las veces que lo hemos hecho a sido muy lindo pero sobre todo muy rico.</p>
+
+                <h4 class="fw-bold mt-4" style="color: var(--amor-rojo);">Perdoname mi amorcito</h4>
+                <p>En verdad perdoname mi vida hermosa, tal vez si tienes razón, te he tenido muy abandonada últimanente, pero creeme no es por desinteres ni nada por el estilo, simplemente que a veces estoy muy ocupado por la escuela, como sabes casi todos los dias salgo a las 4 y en verdad a veces siento que no me da mucho tiempo para hacer todas las cosas que quisiera, para empezar salgo a las 4 de la universidad, en lo que llego a mi casa se dan las 5 o un poco más tarde y aunque el trayecto no es muy largo, las rutas que tomo se tardan un buen amooor, luego a las 5 o 5 y algo que llego a mi casa llego a hacerme de comer pq siempre llego con hambre y como mis comidad de la dieta son algo laboriosas me tardo otro hora o sea ya se me dan las 6 y algo y en lo que como, se dan las 6:30 o algo asi y después tengo que hacer mis tareas, o mis pendientes, luego bañarme, hacerme de cenar, y hacerme mi almuerzo para llevarme al otro dia a la escuela y asi mi vida, pero bueno aun asi tienes razon puedo avisarte que estoy haciendo, si estoy muy ocupado y así, perdoname mi vida prometo ser mas atento contigo, hablar más día a día y si es posible verte los fines de semana y estar contigo más horas, porque por mis horarios se me complica demasiado en la semana, o también podria ir a verte los días que no tenga clases pero aun así no es como que tenga muchos días, prometo que si me das la oportunidad voy a seguir enamorandote cada día mi vida, porque eres mi universo entero, la mujer de mi vida, con la que siempre soñe, la que siempre le pedí a diosito que me mandara, con la que me quiero casar y formar una bella y hermosa familia, porque sino es contigo yo no quiero a nadie más en mi vida, estoy completamente seguro que eres el amor de mi vida y de mi alma y que estamos hechos para todaaaa la vida, y se que esto es dificil amor, la universidad es así de demandante, pero yo se que si nos esforzamos y luchamos todos los días por nosotros, por mejorar, en un futuro ya no tendremos que sufrir más por no vermos, si no que ya podremos estar juntos, eso es lo único que te pido mi vida, si en verdad tanto nos amamos tenemos que luchar y esforzarnos para estar el resto de nuestras vidas juntos y cumplir todos nuestros sueños y metas juntos, como una pareja sana que se ama intensamente, y que le podamos contar nuestra linda historia de amor a nuestros futuros hijos. Porfavor perdoname mi princesita de ojitos hermosos siii?</p>
+
                 <div class="text-end mt-5">
                     <p class="romantic-font h3">Con amor, Gael</p>
                 </div>
@@ -75,11 +164,12 @@
     </div>
 </div>
 
-
 <footer class="py-5 text-center">
     <p class="mb-1">ALE & GAEL</p>
     <p class="fw-bold text-uppercase" style="font-size: 0.8rem; color: var(--amor-rojo);">Te amooo en L mayúscula bebita</p>
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

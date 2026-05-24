@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --amor-rojo: #d63031; /* El rojo de tu barra */
+            --amor-rojo: #d63031;
         }
 
         body {
@@ -25,21 +25,53 @@
         /* NAVBAR */
         .navbar-amor {
             background-color: var(--amor-rojo);
-            padding: 15px 0;
+            padding: 10px 0;
             box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
+
+        /* ESTE ES EL CAMBIO: Título "Recuerdos" en blanco */
+        .navbar-brand.titulo-blanco {
+            color: #ffffff !important;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+
         .navbar-amor .nav-link {
             color: #ffffff !important;
             font-weight: 700;
             text-transform: uppercase;
             margin: 0 15px;
+            font-size: 0.9rem;
         }
 
-        /* TEXTO EN ROJO (COMO LA BARRA) */
+        .navbar-toggler {
+            border-color: rgba(255,255,255,0.5);
+        }
+        .navbar-toggler-icon {
+            filter: invert(1);
+        }
+
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                background-color: var(--amor-rojo);
+                padding: 15px;
+                border-radius: 0 0 15px 15px;
+            }
+            .navbar-amor .nav-link {
+                text-align: center;
+                padding: 12px 0;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            .navbar-amor .nav-link:last-child {
+                border-bottom: none;
+            }
+        }
+
+        /* TEXTOS CUERPO */
         .romantic-font {
             font-family: 'Dancing Script', cursive;
             color: var(--amor-rojo) !important;
-            text-shadow: 1px 1px 2px rgba(255,255,255,0.5); /* Sutil brillo blanco para resaltar sobre el rosa */
         }
 
         .texto-rojo-claro {
@@ -49,13 +81,12 @@
             letter-spacing: 1px;
         }
 
-        /* CONTENEDOR PRINCIPAL */
         .main-content {
             flex: 1;
             padding: 110px 0 50px 0;
         }
 
-        /* CUADRÍCULA DEL CORAZÓN (16 FOTOS) */
+        /* CUADRÍCULA CORAZÓN */
         .heart-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -78,7 +109,7 @@
             animation: unirCorazon 2s ease-out forwards;
         }
 
-        /* POSICIONES CORAZÓN */
+        /* ANIMACIONES Y POSICIONES */
         .pos-1 { grid-area: 1 / 2; --x: -100px; --y: -200px; animation-delay: 0.1s; }
         .pos-2 { grid-area: 1 / 4; --x: 100px; --y: -200px; animation-delay: 0.2s; }
         .pos-3 { grid-area: 2 / 1; --x: -200px; --y: -100px; animation-delay: 0.3s; }
@@ -101,25 +132,33 @@
             100% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 1; }
         }
 
-        footer {
-            background-color: rgba(255, 255, 255, 0.5);
-            border-top: 1px solid rgba(214, 48, 49, 0.1);
-        }
-
         @media (max-width: 576px) {
             .heart-grid { height: 320px; width: 320px; gap: 5px; }
             .romantic-font { font-size: 2.8rem !important; }
+        }
+
+        footer {
+            background-color: rgba(255, 255, 255, 0.5);
+            border-top: 1px solid rgba(214, 48, 49, 0.1);
         }
     </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand navbar-amor fixed-top">
-    <div class="container justify-content-center">
-        <div class="navbar-nav">
-            <a class="nav-link" href="principal.html">INICIO</a>
-            <a class="nav-link" href="nuestra-historia.html">NUESTRA HISTORIA</a>
-            <a class="nav-link active" href="recuerdos.html">RECUERDOS</a>
+<nav class="navbar navbar-expand-lg navbar-amor fixed-top">
+    <div class="container">
+        <span class="navbar-brand titulo-blanco d-lg-none">Recuerdos</span>
+
+        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navRecuerdos">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-center" id="navRecuerdos">
+            <div class="navbar-nav">
+                <a class="nav-link" href="principal.html">INICIO</a>
+                <a class="nav-link" href="nuestra-historia.html">NUESTRA HISTORIA</a>
+                <a class="nav-link active" href="recuerdos.html">RECUERDOS</a>
+            </div>
         </div>
     </div>
 </nav>
@@ -148,12 +187,14 @@
     </div>
 </div>
 
-<br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
 
 <footer class="py-5 text-center">
     <p class="mb-1">ALE & GAEL</p>
     <p class="fw-bold text-uppercase" style="font-size: 0.8rem; color: var(--amor-rojo);">Siempre seras mi lugar feliz y seguro mamorcito</p>
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
